@@ -13,12 +13,7 @@ const func_cake = ({route}) => {
         <View style =  {styles.container}>
             <Text style = {{color : "097bb0",fontSize : 25}}>Total Number of Cake:{cake_quantity}</Text>
             <Text>{route.params.Param}</Text>
-            <TextInput 
-            style = {styles.text_input}
-            keyboardType='numeric'
-            value = {number}
-            onChangeText={setNumber}
-            />
+            
             <TouchableOpacity style = {styles.touch_button} onPress={() => dispatch(buy_cake())}>
                 <Text style = {styles.text}>Buy Cake</Text>
             </TouchableOpacity>

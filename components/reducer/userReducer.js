@@ -1,30 +1,31 @@
 
-import { FETCH_USER_DETAILS } from "../constant/constants";
+import { FETCH_USER_DATA } from "../constant/constants";
 import { FETCH_USER_SUCCESS } from "../constant/constants";
 import { FETCH_USER_FAILURE } from "../constant/constants";
 
-const initial_state = {
+const user_initial_state = {
     loading : false,
     users : [],
     error : ""
 }
 
-const user_reducer = (state = initial_state,action) => {
+const user_reducer = (state = user_initial_state,action) => {
     switch(action.type){
-        case FETCH_USER_DETAILS:
+        case FETCH_USER_DATA:
             return{
-                ...state,
-                loading : false
+                loading : true
             }
-        case FETCH_USER_SUCCESS:
+        case FETCH_USER_SUCCESS :
             return {
-                ...state,
+                loading : false,
+                error : "",
                 users : action.payload,
                 
             }
         case FETCH_USER_FAILURE :
             return {
-                ...state,
+                loading : false,
+                users : [],
                 error : action.payload
             }
         default : return state

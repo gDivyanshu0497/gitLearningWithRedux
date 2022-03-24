@@ -1,11 +1,13 @@
 import {createStore,applyMiddleware} from 'redux';
 import root_reducer_1 from '../reducer/root_reducer';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 // import ice_reducer from '../reducer/iceCreamReducer';
 
 
-const store = createStore(root_reducer_1,composeWithDevTools(applyMiddleware(logger)))
+const store = createStore(root_reducer_1,
+    composeWithDevTools(applyMiddleware(logger,thunk)))
 
 export default store;
